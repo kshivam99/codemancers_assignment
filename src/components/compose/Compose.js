@@ -14,13 +14,18 @@ function Compose() {
 
   async function submitHandler(e) {
     e.preventDefault();
-    dispatch({type:"ADD_NEW_POST", payload:{date: Date.now(), text, gifUrl}});
+    if (text.length || gifUrl) {
+      dispatch({
+        type: "ADD_NEW_POST",
+        payload: { date: Date.now(), text, gifUrl },
+      });
+    }
     setText("");
     setGifUrl(null);
     setViewGif(false);
   }
 
-  console.log(state.posts)
+
   return (
     <div className={styles.share}>
       <div className={styles.shareWrapper}>
@@ -31,7 +36,7 @@ function Compose() {
             placeholder="Write something here..."
             className={styles.shareInput}
             value={text}
-            onChange={(e)=>setText(e.target.value)}
+            onChange={(e) => setText(e.target.value)}
           />
         </div>
         <hr className={styles.shareHr} />
@@ -41,6 +46,8 @@ function Compose() {
             <AiFillCloseSquare
               className={styles.shareCancelImg}
               onClick={() => setGifUrl(null)}
+              size={24}
+              color="#fff"
             />
           </div>
         )}
@@ -49,12 +56,9 @@ function Compose() {
             className={styles.shareOptions}
             onClick={() => setViewGif((prev) => !prev)}
           >
-            <AiOutlineGif color="#fff" className={styles.shareIcon} />
             <span className={styles.shareOptionText}>GIF</span>
-            {
-                viewGif && <GifContainer setGifUrl={setGifUrl} />
-            }
           </div>
+          {viewGif && <GifContainer setGifUrl={setGifUrl} />}
           <button className={styles.shareButton} type="submit">
             Post
           </button>

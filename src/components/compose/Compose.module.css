@@ -5,6 +5,7 @@
   box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
   margin: 4rem auto;
   padding: 1rem;
+  background-color: #151515;
 }
 
 .shareWrapper {
@@ -30,7 +31,7 @@
   height: 4rem;
   padding: 1rem;
   padding-top: 2rem;
-  background-color: #222222;
+  background-color: #151515;
   color: #fff;
   overflow: scroll;
   resize: none;
@@ -56,6 +57,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: relative;
 }
 
 .shareOptions {
@@ -78,7 +80,7 @@
 
 .shareButton {
   border: none;
-  padding: 7px;
+  padding: 9px 19px;
   border-radius: 5px;
   background-color: #097fed;
   font-weight: 500;
@@ -95,7 +97,7 @@
 }
 
 .shareImg {
-  width: 100%;
+  width: 80%;
   object-fit: contain;
 }
 

@@ -14,7 +14,7 @@ function Post({ post }) {
           </div>
         </div>
         <div className={styles.postCenter}>
-          <span className={styles.postText}>{post.text}</span>
+          <p className={styles.postText}>{post.text}</p>
           <img className={styles.postImg} src={post.gifUrl} alt="" />
         </div>
       </div>

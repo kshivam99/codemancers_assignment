@@ -7,7 +7,7 @@ export const postsReducer = (state, action) => {
     case "ADD_NEW_POST":
       return {
         ...state,
-        posts: state.posts.concat(action.payload)
+        posts: [action.payload, ...state.posts]
       };
     default:
       break;
