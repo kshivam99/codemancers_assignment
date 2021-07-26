@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import styles from "./Compose.module.css";
 import Img from "./profile.png";
-import { AiFillCloseSquare, AiOutlineGif } from "react-icons/ai";
+import { AiFillCloseSquare } from "react-icons/ai";
 import { usePost } from "../../reducer/postsReducer";
 import GifContainer from "./GifContainer";
 
@@ -10,7 +10,7 @@ function Compose() {
   const [text, setText] = useState("");
   const [gifUrl, setGifUrl] = useState(null);
   const [viewGif, setViewGif] = useState(false);
-  const { state, dispatch } = usePost();
+  const { dispatch } = usePost();
 
   async function submitHandler(e) {
     e.preventDefault();

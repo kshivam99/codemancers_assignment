@@ -43,6 +43,7 @@ function GifContainer({ setGifUrl }) {
               gifs.map((gif) => {
                 return (
                   <img
+                    key={gif.id}
                     src={gif.images.fixed_height.url}
                     className={styles.gif}
                     onClick={(e)=>setGifUrl(e.target.src)}

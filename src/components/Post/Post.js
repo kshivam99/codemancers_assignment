@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./Post.module.css";
 import profileImage from "../Compose/profile.png";
+import formatTime from "../../utils/formatTime";
 
 function Post({ post }) {
   return (
@@ -10,7 +11,7 @@ function Post({ post }) {
           <div className={styles.postTopLeft}>
             <img className={styles.postProfileImg} src={profileImage} alt="" />
             <span className={styles.postUsername}>Shivam</span>
-            <span className={styles.postDate}>{post.date}</span>
+            <span className={styles.postDate}>{formatTime(post.date)}</span>
           </div>
         </div>
         <div className={styles.postCenter}>
