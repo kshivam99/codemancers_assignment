@@ -1,10 +1,10 @@
 import './App.css';
-import Compose from './components/compose/Compose';
+import Feed from './pages/Feed';
 
 function App() {
   return (
     <div className="App">
-      <Compose />
+      <Feed />
     </div>
   );
 }

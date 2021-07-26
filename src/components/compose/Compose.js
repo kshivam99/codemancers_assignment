@@ -3,23 +3,24 @@ import { useState } from "react";
 import styles from "./Compose.module.css";
 import Img from "./profile.png";
 import { AiFillCloseSquare, AiOutlineGif } from "react-icons/ai";
+import { usePost } from "../../reducer/postsReducer";
+import GifContainer from "./GifContainer";
 
 function Compose() {
-  const [newPost, setNewPost] = useState({ text: "", gif: "" });
+  const [text, setText] = useState("");
   const [gifUrl, setGifUrl] = useState(null);
   const [viewGif, setViewGif] = useState(false);
-  const { text, gif } = newPost;
+  const { state, dispatch } = usePost();
 
   async function submitHandler(e) {
     e.preventDefault();
+    dispatch({type:"ADD_NEW_POST", payload:{date: Date.now(), text, gifUrl}});
+    setText("");
+    setGifUrl(null);
+    setViewGif(false);
   }
 
-  function handleChange(e) {
-    let { name, value } = e.target;
-
-    setNewPost((prev) => ({ ...prev, [name]: value }));
-  }
-
+  console.log(state.posts)
   return (
     <div className={styles.share}>
       <div className={styles.shareWrapper}>
@@ -30,7 +31,7 @@ function Compose() {
             placeholder="Write something here..."
             className={styles.shareInput}
             value={text}
-            onChange={handleChange}
+            onChange={(e)=>setText(e.target.value)}
           />
         </div>
         <hr className={styles.shareHr} />
@@ -50,6 +51,9 @@ function Compose() {
           >
             <AiOutlineGif color="#fff" className={styles.shareIcon} />
             <span className={styles.shareOptionText}>GIF</span>
+            {
+                viewGif && <GifContainer setGifUrl={setGifUrl} />
+            }
           </div>
           <button className={styles.shareButton} type="submit">
             Post
