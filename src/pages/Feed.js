@@ -1,5 +1,5 @@
 import React from "react";
-import Compose from "../components/Compose/Compose";
+import Compose from "../components/compose/Compose";
 import Post from "../components/Post/Post";
 import { usePost } from "../reducer/postsReducer";
 

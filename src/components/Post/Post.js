@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./Post.module.css";
-import profileImage from "../Compose/profile.png";
+import profileImage from "../compose/profile.png";
 import formatTime from "../../utils/formatTime";
 
 function Post({ post }) {
