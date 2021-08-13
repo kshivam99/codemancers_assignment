@@ -43,6 +43,7 @@
   
   .postCenter{
       margin: 20px 0;
+      overflow-x: hidden;
   }
   
   .postImg{
@@ -55,6 +56,8 @@
   .postText{
       text-align: left;
       font-size: 1.3rem;
+      width: 100%;
+      word-wrap: break-word;
   }
   
   @media screen and (max-width: 760px) {
